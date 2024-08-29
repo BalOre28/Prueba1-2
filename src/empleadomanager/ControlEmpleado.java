@@ -17,12 +17,13 @@ public class ControlEmpleado {
         EmpleadoManager emp= new EmpleadoManager();
         int opcion=0;
         do{
-            System.out.println("\n\nMENU\n-----------");
+            System.out.println("\n**** MENU ****");
             System.out.println("1- Agregar Empleado"+
-                    "\n2- Listar Empleado"+
-                    "\n3- Despedir Empleado"+
-                    "\n4- Empleado Activo"+
-                    "\n5- Salir");
+                               "\n2- Listar Empleado"+
+                               "\n3- Despedir Empleado"+
+                               "\n4- Empleado Activo"+
+                               "\n5- Salir");
+            System.out.println("Ingrese una de las opciones: ");
             opcion=leer.nextInt();
             switch(opcion){
                 case 1:
@@ -42,9 +43,15 @@ public class ControlEmpleado {
                     emp.EmpDespedir(id);
                     break;
                 case 4:
-
+                     System.out.println("Ingrese el codigo para ver el empleado activo: ");
+                     int code=leer.nextInt();
+                     boolean activo=emp.EmpActivo(code);
+                     if(activo){
+                         System.out.println("El empleado con el codigo: "+code+" Se encuentra Activo");
+                     }else{
+                         System.out.println("El empleado con el codigo: "+code+" No se encuentra Activo");
+                     }
                     break;
-                    
             }
         }while(opcion!=5);
     }

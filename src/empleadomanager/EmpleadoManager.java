@@ -119,7 +119,17 @@ public class EmpleadoManager {
     } 
     
     public boolean EmpActivo(int code) throws IOException {
-
+        remps.seek(0);
+        while (remps.getFilePointer() < remps.length()) {
+            int codes = remps.readInt();
+            long pos = remps.getFilePointer();
+            remps.readUTF();
+            remps.skipBytes(16);
+            if (remps.readLong() == 0 && codes == code) {
+                remps.seek(pos);
+                return true;
+            }
+        }
         return false;
     }
 }
