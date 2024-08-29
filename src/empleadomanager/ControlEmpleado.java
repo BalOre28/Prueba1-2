@@ -37,10 +37,12 @@ public class ControlEmpleado {
                     emp.list();
                     break;
                 case 3: 
-                   
+                    System.out.println("Ingrese codigo del empleado: ");
+                    int id=leer.nextInt();
+                    emp.EmpDespedir(id);
                     break;
                 case 4:
-                    
+
                     break;
                     
             }

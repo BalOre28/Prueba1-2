@@ -103,5 +103,23 @@ public class EmpleadoManager {
                 System.out.println("No tenemos a ningun empleado en la lista...");
             }
         }
+        
+    }
+    
+    public boolean EmpDespedir(int code) throws IOException {
+        if (EmpActivo(code) == false) {
+            return false;
+        } else {
+            String name = remps.readUTF();
+            remps.skipBytes(16);
+            remps.writeLong(new Date().getTime());
+            System.out.println("Despidiendo a "+name);
+            return true;
+        }
+    } 
+    
+    public boolean EmpActivo(int code) throws IOException {
+
+        return false;
     }
 }
